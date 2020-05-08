@@ -38,6 +38,9 @@ const StyledDiv = styled.div`
         }
     }
 
+    .actions {
+        margin-top: 4%;
+    }
 
 `
 

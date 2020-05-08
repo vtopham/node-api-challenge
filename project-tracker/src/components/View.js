@@ -25,7 +25,8 @@ const StyledDiv = styled.div`
     }
 
     .project-container {
-        padding: 4%
+        padding: 4%;
+        width: 50%;
 
     }
     
