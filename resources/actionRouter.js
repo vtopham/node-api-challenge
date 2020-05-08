@@ -33,8 +33,12 @@ router.get('/:id', validateActionId, (req, res) => {
 })
 
 //delete an action by id
-router.delete('/:id', (req, res) => {
-    
+router.delete('/:id', validateActionId, (req, res) => {
+    aModel.remove(req.params.id).then(deleted => {
+        res.status(200).json({message: `${deleted} record successfully deleted.`})
+    }).catch(error => {
+        res.status(500).json({message: "Error deleting action", error: error})
+    })
 })
 
 //edit an action by id
