@@ -36,12 +36,17 @@ router.delete('/:id', validateProjectId, (req, res) => {
     pModel.remove(req.params.id).then(deleted => {
         res.status(200).json({message: `${deleted} record successfully deleted.`})
     }).catch(error => {
-        res.status(500).json({message: "Error deleting data", error: error})
+        res.status(500).json({message: "Error deleting project", error: error})
     })
 })
 
 //edit a post by id
-router.put('/:id', (req, res) => {
+router.put('/:id', validateProject, validateProjectId, (req, res) => {
+    pModel.update(req.params.id, req.body).then(resource => {
+        res.status(200).json({message: "Project successfully updated", data: resource})
+    }).catch(error => {
+        res.status(500).json({message: "Error updating project", error: error})
+    })
     
 })
 
