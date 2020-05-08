@@ -25,7 +25,11 @@ router.post('/', validateAction, (req,res) => {
 
 //get action by id
 router.get('/:id', (req, res) => {
-    
+    aModel.get(req.params.id).then(resource => {
+        res.status(200).json({data: resource})
+    }).catch(error => {
+        res.status(500).json({message: "Error retrieving data", error: error})
+    })
 })
 
 //delete an action by id
