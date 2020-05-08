@@ -1,9 +1,15 @@
 const express = require('express')
 
+const projectRouter = require('./resources/projectRouter.js')
+const actionRouter = require('./resources/actionRouter.js')
+
 
 const server = express()
 
 server.use(express.json())
+
+server.use('/projects', projectRouter)
+server.use('/actions', actionRouter)
 
 server.get('/', (req, res) => {
     res.status(200).json({message: "Server is working! go get 'em, tiger"})
