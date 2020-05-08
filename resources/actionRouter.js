@@ -6,7 +6,11 @@ const router = express.Router();
 
 //get a list of all actions
 router.get('/', (req, res) => {
-    
+    aModel.get().then(resources => {
+        res.status(200).json({data: resources})
+    }).catch(error => {
+        res.status(500).json({message: "Error retrieving data", error: error})
+    })
 })
 
 //create an action
@@ -36,7 +40,7 @@ function validateActionID(req, res, next) {
 }
 
 function validateAction(req, res, next) {
-    
+
 }
 
 
