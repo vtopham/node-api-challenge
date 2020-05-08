@@ -23,12 +23,12 @@ const StyledDiv = styled.div`
 
     button {
         background: #FE5252;
-        width: 70%;
+        width: 50%;
         align-self: center;
         color: white;
         border-radius: 10px;
         padding: 2% 1%;
-        font-size: 1.1rem;
+        font-size: 1rem;
         border: 2px solid white;
 
         &: hover {
@@ -39,15 +39,15 @@ const StyledDiv = styled.div`
     }
 
     .actions {
-        margin-top: 4%;
+        margin: 4% 0;
     }
 
 `
 
 const ProjectCard = ({ project }) => {
 
-    const dummyData = {id: 1, description: "An action", notes: "these are some notes", completed: false} //TODO
-    const [actions, setActions] = useState([dummyData]) //TODO
+    // const dummyData = {id: 1, description: "An action", notes: "these are some notes", completed: false} //TODO
+    const [actions, setActions] = useState([])
     const [viewActions, setViewActions] = useState(false)
 
     const getActions = _ => {
@@ -65,7 +65,7 @@ const ProjectCard = ({ project }) => {
             //change it so we're viewing, should be true
             setViewActions(true)
             //get our actions and set them to state
-            // getActions() //TODO
+            getActions() 
 
         } else {
             //if viewActions was true, clear and reset

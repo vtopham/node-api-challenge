@@ -5,9 +5,15 @@ const StyledDiv = styled.div`
     border: 1px solid #999999;
     border-radius: 10px;
     padding: 2% 4%;
+    margin: 2% 0;
 
     h3 {
         margin: 2% 0;
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: .6rem;
     }
 
 `

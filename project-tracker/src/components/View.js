@@ -35,8 +35,8 @@ const StyledDiv = styled.div`
 
 const View = props => {
 
-    const dummyData = {id: 1, name: "Example task", completed: false, description: "example description"} //TODO
-    const [projects, setProjects] = useState([dummyData]) //TODO
+    // const dummyData = {id: 1, name: "Example task", completed: false, description: "example description"} //TODO
+    const [projects, setProjects] = useState([]) 
 
 
     const getData = _ => {
@@ -52,7 +52,7 @@ const View = props => {
     }
 
     useEffect(_ => {
-        // getData(); TODO
+        getData();
     },[])
 
     return (
