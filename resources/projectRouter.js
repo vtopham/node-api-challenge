@@ -15,7 +15,11 @@ router.get('/', (req, res) => {
 
 //create a new project
 router.post('/', (req, res) => {
-
+    pModel.insert(req.body).then(resource => {
+        res.status(201).json({message: "Project successfully created!", data: resource})
+    }).catch(error => {
+        res.status(500).json({message: "Error creating project", error: error})
+    })
 })
 
 //get projects by id
