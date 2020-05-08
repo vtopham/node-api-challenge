@@ -51,8 +51,12 @@ router.put('/:id', validateProject, validateProjectId, (req, res) => {
 })
 
 //get actions by project id
-router.get('/:id/actions', (req, res) => {
-    
+router.get('/:id/actions', validateProjectId, (req, res) => {
+    pModel.get(req.params.id).then(project => {
+        res.status(200).json({data: project.actions})
+    }).catch(error => {
+        res.status(500).json({message: "Error retrieving data", error: error})
+    })
 })
 
 //custom middleware
