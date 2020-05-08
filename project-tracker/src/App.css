@@ -1,0 +1,16 @@
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Roboto Mono', monospace;
+  color: #5F6368;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Roboto+Mono&display=swap');
+p, a, button {
+  
+  font-family: 'Roboto', sans-serif;
+  color: #5F6368;
+}
+
+.completed-status {
+  font-style: italic;
+  font-size: .8rem;
+}
