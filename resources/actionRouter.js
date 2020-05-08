@@ -42,8 +42,12 @@ router.delete('/:id', validateActionId, (req, res) => {
 })
 
 //edit an action by id
-router.put('/:id', (req, res) => {
-
+router.put('/:id', validateActionId, validateAction, (req, res) => {
+    aModel.update(req.params.id, req.body).then(resource => {
+        res.status(201).json({message: "Action successfully created", data: resource})
+    }).catch(error => {
+        res.status(500).json({message: "Error updating action", error: error})
+    })
 })
 
 //custom middleware
