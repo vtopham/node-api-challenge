@@ -23,7 +23,7 @@ router.post('/', validateProject, (req, res) => {
 })
 
 //get projects by id
-router.get('/:id', (req, res) => {
+router.get('/:id', validateProjectId, (req, res) => {
     pModel.get(req.params.id).then(project => {
         res.status(200).json({data: project})
     }).catch(error => {
@@ -49,7 +49,16 @@ router.get('/:id/actions', (req, res) => {
 //custom middleware
 
 function validateProjectId(req, res, next) {
-
+    pModel.get(req.params.id).then(resource => {
+        if (!resource) {
+            res.status(404).json({message: "Project not found"})
+        } else {
+            next();
+        }
+        
+    }).catch(error => {
+        res.status(500).json({message: "Error retrieving data", error: error})
+    })
 }
 
 function validateProject(req, res, next) {
