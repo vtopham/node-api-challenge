@@ -43,10 +43,9 @@ const ProjectCard = ({ project }) => {
     }
     return(
         <StyledDiv>
-            <h2>{project.name} </h2>
+            <h2 className = "project-name">{project.name} </h2>
             <p className = "completed-status">{project.completed ? "Complete" : "Not Yet Complete"}</p>
             <p>{project.description}</p>
-            <p> Notes: {project.notes}</p>
             {/* When you click this button, it either sets or clears the actions */}
             <button onClick = {handleView}>{viewActions ? "Hide Actions" : "View Actions"}</button>
             <div className = "actions">

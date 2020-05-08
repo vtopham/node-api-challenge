@@ -78,7 +78,7 @@ function validateProject(req, res, next) {
     if (!req.body) {
         res.status(400).json({message: "Please include a body on this request with the project data."})
     } else if (!req.body.name || !req.body.description ) {
-        res.status(400).json({message: "Please remember to include the name, description, and notes for the project"})
+        res.status(400).json({message: "Please remember to include the name and description for the project"})
     } else {
         next();
     }
