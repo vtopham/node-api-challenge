@@ -24,7 +24,11 @@ router.post('/', validateProject, (req, res) => {
 
 //get projects by id
 router.get('/:id', (req, res) => {
-
+    pModel.get(req.params.id).then(project => {
+        res.status(200).json({data: project})
+    }).catch(error => {
+        res.status(500).json({message: "Error retrieving data", error: error})
+    })
 })
 
 //delete a project by id
