@@ -34,7 +34,8 @@ const View = props => {
             <h1>Welcome To Project Tracker</h1>
             {console.log(projects)}
             {projects.map(project => {
-                return <ProjectCard />
+                console.log(project)
+                return <ProjectCard key = {project.id} project = {project}/>
             })}
         </>
     )
