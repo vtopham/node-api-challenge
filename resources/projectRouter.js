@@ -6,7 +6,11 @@ const router = express.Router();
 
 //get a list of all projects
 router.get('/', (req, res) => {
-    
+    pModel.get().then(projects => {
+        res.status(200).json({data: projects})
+    }).catch(error => {
+        res.status(500).json({message: "Error retrieving data", error: error})
+    })
 })
 
 //create a new project
