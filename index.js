@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors') //for stretch
 
 const projectRouter = require('./resources/projectRouter.js')
 const actionRouter = require('./resources/actionRouter.js')
@@ -6,7 +7,9 @@ const actionRouter = require('./resources/actionRouter.js')
 
 const server = express()
 
+
 server.use(express.json())
+server.use(cors()) //for stretch
 
 server.use('/projects', projectRouter)
 server.use('/actions', actionRouter)
