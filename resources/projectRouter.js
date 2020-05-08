@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 })
 
 //create a new project
-router.post('/', (req, res) => {
+router.post('/', validateProject, (req, res) => {
     pModel.insert(req.body).then(resource => {
         res.status(201).json({message: "Project successfully created!", data: resource})
     }).catch(error => {
@@ -49,7 +49,13 @@ function validateProjectId(req, res, next) {
 }
 
 function validateProject(req, res, next) {
-
+    if (!req.body) {
+        res.status(400).json({message: "Please include a body on this request with the project data."})
+    } else if (!req.body.name || !req.body.description ) {
+        res.status(400).json({message: "Please remember to include the name, description, and notes for the project"})
+    } else {
+        next();
+    }
 }
 
 
