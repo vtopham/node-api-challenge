@@ -1,3 +1,55 @@
+const express = require('express')
+
+
+const server = express()
+
+server.use(express.json())
+
+server.get('/', (req, res) => {
+    res.status(200).json({message: "Server is working! go get 'em, tiger"})
+})
+
+
+const port = process.env.PORT | 5000
+
+server.listen(port, _ => {
+    console.log(`Listening on port ${port}`)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 play this: https://www.youtube.com/watch?v=d-diB65scQU
 
