@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+I learned about express middleware, the ability to run a stack of functions in the order that they are called. I also learned about express router, which allows you to split the application into sub applications 
+
 - [ ] Describe Middleware?
+
+Middleware is a set of functions that are executed in the order that you add them to the server code. They’re functions that extend express’s capabilities. These functions can perform operations on/using req & res objects, and can either move the server onto the next function, or it can return a response to the client.
 
 - [ ] Describe a Resource?
 
+In RESTful APIs, everything you interact with is considered a resource.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+An API can return 200-299 as a response. 200 is most commonly used.
+
 - [ ] How can we partition our application into sub-applications?
+
+You can partition your application into sub applications using express router.
 
 ## Minimum Viable Product
 
