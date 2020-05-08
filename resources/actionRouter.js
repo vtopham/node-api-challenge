@@ -24,7 +24,7 @@ router.post('/', validateAction, (req,res) => {
 })
 
 //get action by id
-router.get('/:id', (req, res) => {
+router.get('/:id', validateActionId, (req, res) => {
     aModel.get(req.params.id).then(resource => {
         res.status(200).json({data: resource})
     }).catch(error => {
@@ -44,7 +44,16 @@ router.put('/:id', (req, res) => {
 
 //custom middleware
 
-function validateActionID(req, res, next) {
+function validateActionId(req, res, next) {
+    aModel.get(req.params.id).then(resource => {
+        if(!resource) {
+            res.status(404).json({message: "Action not found"})
+        } else {
+            next();
+        }
+    }).catch(error => {
+        res.status(500).json({message: "Error validating the action Id", error: error})
+    })
 
 }
 
