@@ -7,7 +7,7 @@ const ActionCard = props => {
         <>
         <h3>{action.description}</h3>
         <p>Notes: {action.notes}</p>
-        <p>{action.completed ? "This action has been completed" : "This action is not yet complete."}</p>
+        <p className = "completed-status">{action.completed ? "This action has been completed" : "This action is not yet complete."}</p>
         </>
     )
 }

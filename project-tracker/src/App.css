@@ -7,5 +7,10 @@ h1, h2, h3, h4, h5, h6{
 p, a, button {
   
   font-family: 'Roboto', sans-serif;
-  color: #5F6368
+  color: #5F6368;
+}
+
+.completed-status {
+  font-style: italic;
+  font-size: .8rem;
 }
